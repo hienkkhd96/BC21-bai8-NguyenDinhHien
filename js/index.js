@@ -9,6 +9,7 @@ let numbersPositive = 0;
 let numbersNegative = 0;
 let arr = [];
 let html = "";
+// Tổng các số dương trong mảng
 totalPositive = () => {
   positiveArr = arr.filter((e) => {
     return e > 0;
@@ -17,10 +18,12 @@ totalPositive = () => {
   html = html + `<p>1. Tổng các số dương : ${total}</p>`;
   countPositive(positiveArr);
 };
+// Số các số dương trong mảng
 countPositive = (positiveArr) => {
   html = html + `<p>2. Số số dương trong mảng : ${positiveArr.length}</p>`;
   numbersPositive = positiveArr.length;
 };
+// Tìm số bé nhất trong mảng
 findMinNumber = () => {
   let min = arr[0];
   for (let i = 0; i < arr.length; i++) {
@@ -30,6 +33,7 @@ findMinNumber = () => {
   }
   html = html + `<p>3. Số nhỏ nhất trong mảng là : ${min}</p>`;
 };
+// Tìm số dương bé nhất trong mảng
 findMinPositive = () => {
   let minPositive = arr[0] > 0 ? arr[0] : -1;
   arr.forEach((x) => {
@@ -41,6 +45,7 @@ findMinPositive = () => {
     html +
     `<p>4. Số dương nhỏ nhất trong mảng là(Không có trả về -1) : ${minPositive}</p>`;
 };
+// Tìm số chẵn cuối cùng trong mảng
 findLastEven = () => {
   let lastEven = -1;
   arr.forEach((e) => {
@@ -52,6 +57,7 @@ findLastEven = () => {
     html +
     `<p>5. Số chẵn cuối cùng trong mảng(Không có trả về -1) : ${lastEven}`;
 };
+// Đổi chỗ 2 phàn tử trong mảng
 swapItem = () => {
   slot1.setAttribute("max", arr.length - 1);
   slot2.setAttribute("max", arr.length - 1);
@@ -66,6 +72,7 @@ swapItem = () => {
     swapValues.innerHTML = cloneHtml;
   };
 };
+// Sắp xếp mảng theo thứ tự tăng dần
 sortItem = () => {
   let cloneArr = [...arr];
   cloneArr.sort((a, b) => a - b);
@@ -75,6 +82,7 @@ sortItem = () => {
       ";"
     )}`;
 };
+// Hàm kiểm tra số xem có phải số nguyên tố
 function isprime(n) {
   //flag = 0 => không phải số nguyên tố
   //flag = 1 => số nguyên tố
@@ -105,6 +113,7 @@ function isprime(n) {
 
   return flag;
 }
+// Tìm số nguyen tố đầu tiên của mảng
 findFirstPrime = () => {
   let firstPrime = arr.find((a) => isprime(a) === 1);
   html =
@@ -113,6 +122,7 @@ findFirstPrime = () => {
       firstPrime || -1
     }`;
 };
+// Số các số nguyên trong mảng
 countInteger = () => {
   let count = 0;
   arr.forEach((x) => {
@@ -122,6 +132,7 @@ countInteger = () => {
   });
   html = html + `<p>9. Số số nguyên trong mảng là ${count}`;
 };
+// Đếm số các số âm trong mảng
 countNegative = () => {
   let count = 0;
   arr.forEach((x) => {
@@ -131,6 +142,7 @@ countNegative = () => {
   });
   numbersNegative = count;
 };
+// So sánh số số âm và số số dương
 compareNumbers = () => {
   if (numbersNegative > numbersPositive) {
     html = html + `<p>10. Số âm trong mảng nhiều hơn số dương}`;
